@@ -1,0 +1,82 @@
+[
+  {
+    "category_name": "Smartphone",
+    "link": "https://www.techlandbd.com/smartphone-and-tablet",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/smartphone.png"
+  },
+  {
+    "category_name": "Laptop",
+    "link": "https://www.techlandbd.com/shop-laptop-computer/brand-laptops",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/laptop.png"
+  },
+  {
+    "category_name": "Air Conditioner",
+    "link": "https://www.techlandbd.com/home-appliance/air-conditioner",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/air-conditioner.png"
+  },
+  {
+    "category_name": "Desktop",
+    "link": "https://www.techlandbd.com/computers/desktop-computer",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/desktop.png"
+  },
+  {
+    "category_name": "Processor",
+    "link": "https://www.techlandbd.com/pc-components/processor",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/processor.png"
+  },
+  {
+    "category_name": "Motherboard",
+    "link": "https://www.techlandbd.com/pc-components/motherboard",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/motherboard.png"
+  },
+  {
+    "category_name": "SSD",
+    "link": "https://www.techlandbd.com/pc-components/solid-state-drive",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/ssd.png"
+  },
+  {
+    "category_name": "Graphics Card",
+    "link": "https://www.techlandbd.com/pc-components/graphics-card",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/graphics-card.png"
+  },
+  {
+    "category_name": "RAM",
+    "link": "https://www.techlandbd.com/pc-components/shop-desktop-ram",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/ram.png"
+  },
+  {
+    "category_name": "Television",
+    "link": "https://www.techlandbd.com/tv-home-entertainment/television-price",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/television.png"
+  },
+  {
+    "category_name": "Router",
+    "link": "https://www.techlandbd.com/server-networking/shop-routers",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/router.png"
+  },
+  {
+    "category_name": "Monitor",
+    "link": "https://www.techlandbd.com/monitor-and-display",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/monitor.png"
+  },
+  {
+    "category_name": "Gaming Chair",
+    "link": "https://www.techlandbd.com/game-zone/gaming-chair",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/gaming-chair.png"
+  },
+  {
+    "category_name": "Case",
+    "link": "https://www.techlandbd.com/pc-components/computer-case",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/case.png"
+  },
+  {
+    "category_name": "Power Supply",
+    "link": "https://www.techlandbd.com/pc-components/power-supply",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/power-supply.png"
+  },
+  {
+    "category_name": "Printer",
+    "link": "https://www.techlandbd.com/office-solution/printer",
+    "image": "https://techlandbd.com/storage/cbs/uploads/categories-featured/printer.png"
+  }
+]
