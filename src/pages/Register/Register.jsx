@@ -1,23 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import cartImage from '../../assets/images/registerCartImg.png'
 import { AuthContext } from '../../components/Provider/AuthContext';
-
+import Swal from 'sweetalert2';
+import { FaEye } from 'react-icons/fa6';
+import { IoEyeOff } from 'react-icons/io5';
+import { Link } from 'react-router';
 
 const Register = () => {
-const {createUser, setUser} = useContext(AuthContext)
+  const { createUser, setUser, googleSignIn } = useContext(AuthContext)
+  const [show, setShow] = useState(false)
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    createUser(email, password)
+      .then(res => {
+        const user = res.user;
+        setUser(user)
+        Swal.fire({
+          icon: 'success',
+          title: 'Account created successfully!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        e.target.reset()
+      })
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Registration failed',
+          text: err.message,
+        });
+      });
+  }
 
-const handleRegister = (e) => {
-  e.preventDefault();
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  console.log(email, password);
-  createUser(email, password)
-    .then(res =>{
-      const user = res.user;
-      setUser(user)
-    })
-    .catch(err => console.log(err));
-}
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(res => {
+        setUser(res.user)
+        Swal.fire({
+          icon: 'success',
+          title: 'Google sign-in successful!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+      )
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Google sign-in failed',
+          text: err.message,
+        });
+      })
+  }
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-white">
@@ -43,16 +80,15 @@ const handleRegister = (e) => {
             className="input input-bordered w-full"
             name='email'
           />
-          <input
-            type="password"
-            placeholder="Password"
-            className="input input-bordered w-full"
-            name='password'
-          />
+          <div className='relative' >
+            <input type={`${show ? 'text' : 'password'}`} placeholder="Password" className="input input-bordered w-full " name='password' />
+            <span onClick={()=> setShow(!show)} className='absolute top-2.5 right-3 text-black cursor-pointer z-50'>{show? <FaEye></FaEye> : <IoEyeOff></IoEyeOff>}</span>
+          </div>
+
           <button className="btn btn-error w-full text-white">
             Create Account
           </button>
-          <button type='submit' className="btn btn-outline w-full">
+          <button onClick={handleGoogleSignIn} type='submit' className="btn btn-outline w-full">
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
@@ -63,9 +99,9 @@ const handleRegister = (e) => {
         </form>
         <p className="mt-4 text-sm text-center">
           Already have account?{" "}
-          <a href="#" className="text-blue-500 font-semibold">
+          <Link to={'/login'} className="text-blue-500 font-semibold">
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>

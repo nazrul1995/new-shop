@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BiUser } from 'react-icons/bi';
 import { CiHeart } from 'react-icons/ci';
 import { IoCartOutline } from 'react-icons/io5';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+    const { logOut, user } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Logged out successfully!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Logout failed",
+                    text: error.message,
+                });
+            })
+    }
     const links = <>
-        <NavLink className={'mr-2.5'} to={"/home"}>Home</NavLink>
+        <NavLink className={'mr-2.5'} to={"/"}>Home</NavLink>
         <NavLink className={'mr-2.5'} to={"/about"}>About</NavLink>
         <NavLink className={'mr-2.5'} to={"/contact"}>Contact</NavLink>
     </>
@@ -28,8 +50,14 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     {links}
                 </div>
-                <div className="navbar-end gap-x-2.5">
-                    <label className="input w-[240px]">
+                <div className="navbar-end gap-x-3">
+                    <div className='flex gap-x-2.5'>
+                        <BiUser size={30}></BiUser>
+                        {
+                            user ?  <button onClick={handleLogOut}>Log Out</button> : <Link to={'/login'}>Log In</Link>
+                        }
+                    </div>
+                    <label className="input w-50">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
                                 strokeLinejoin="round"
@@ -44,7 +72,7 @@ const Navbar = () => {
                         </svg>
                         <input type="search" required placeholder="Search" />
                     </label>
-                    <CiHeart size={30}/>
+                    <CiHeart size={30} />
                     <IoCartOutline size={30} />
                 </div>
             </div>
